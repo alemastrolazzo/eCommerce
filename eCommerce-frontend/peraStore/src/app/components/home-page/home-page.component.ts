@@ -14,7 +14,6 @@ export class HomePageComponent {
   image: Image[] = [];
   prodottoSingolo: Product | null = null;
   imageSingola: Image | null = null;
-  prodottoSelezionato: Product | null = null;
 
   constructor(private prodottiService: ProductService,private imageService: ImageService) {}
 
@@ -36,7 +35,7 @@ export class HomePageComponent {
     });
   }
 
-  loadProdottiById(id: number){
+  getProdottiById(id: number){
     this.prodottiService.getById(id).subscribe(data => {
       this.prodottoSingolo = data;
     });
@@ -48,9 +47,10 @@ export class HomePageComponent {
     });
   }
 
-  aggiungiAlCarrello() {
-    if (this.prodottoSelezionato) {
-        this.prodottiService.create(this.prodottoSelezionato).subscribe();
-      }
+  aggiungiAlCarrello(id: number) {
+        this.getProdottiById(id);
+        if (this.prodottoSingolo) {
+          this.prodottiService.create(this.prodottoSingolo).subscribe();
+        }
     }
 }
