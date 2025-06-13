@@ -1,0 +1,24 @@
+ body{
+   background-color: #f8f9fa;
+   color: #212529;
+   text-align: center;
+ }
+.container{
+  min-width: 100%;
+  padding:3em;
+}
+#icon{
+  width:30px;
+  height:35px;
+}
+
+img.card-img-top {
+  width: 250px;
+  height: 250px;
+  max-width:100%;
+}
+
+nav{
+  position: sticky;
+  top: 0;
+}
